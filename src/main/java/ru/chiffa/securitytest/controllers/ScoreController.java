@@ -1,5 +1,6 @@
 package ru.chiffa.securitytest.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,8 +11,9 @@ import java.security.Principal;
 
 @Controller
 @RequestMapping("/app/score")
+@RequiredArgsConstructor
 public class ScoreController {
-    private ScoreService scoreService;
+    private final ScoreService scoreService;
 
     @GetMapping("/inc")
     public void increaseScore(Principal principal){
